@@ -74,26 +74,26 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          color: Colors.white,
-          onPressed: () {
-            print("Menu Button Clicked");
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu),
+        //   color: Colors.white,
+        //   onPressed: () {
+        //     print("Menu Button Clicked");
+        //   },
+        // ),
         title: Text(
-          "Demo App",
-          style: TextStyle(color: Colors.black),
+          "StockMate",
+          style: TextStyle(color: Colors.white),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              print("Exit Clicked");
-            },
-            icon: Icon(Icons.exit_to_app),
-            color: Colors.white,
-          )
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {
+        //       print("Exit Clicked");
+        //     },
+        //     icon: Icon(Icons.exit_to_app),
+        //     color: Colors.white,
+        //   )
+        // ],
       ),
       body: Center(
         child: Container(
@@ -124,6 +124,8 @@ class _LoginState extends State<Login> {
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: _isValid ? _login : null, // Disable button if invalid
+
+
                 child: Text("Login"),
               ),
             ],

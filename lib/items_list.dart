@@ -1,24 +1,26 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:login_form/item_detailed_page.dart';
 
-class Item {
-  final String name;
-  final String image;
-  final String description;
-  final double price;
 
-  Item({required this.name, required this.image, required this.description, required this.price});
+// class Item {
+//   final String name;
+//   final String image;
+//   final String description;
+//   final double price;
 
-  factory Item.fromJson(Map<String, dynamic> json) {
-    return Item(
-      name: json['name'],
-      image: json['image'],
-      description: json['description'],
-      price: json['price'].toDouble(),
-    );
-  }
-}
+//   Item({required this.name, required this.image, required this.description, required this.price});
+
+//   factory Item.fromJson(Map<String, dynamic> json) {
+//     return Item(
+//       name: json['name'],
+//       image: json['image'],
+//       description: json['description'],
+//       price: json['price'].toDouble(),
+//     );
+//   }
+// }
 
 class ItemListPage extends StatefulWidget {
   const ItemListPage({super.key});
@@ -28,7 +30,7 @@ class ItemListPage extends StatefulWidget {
 }
 
 class _ItemListPageState extends State<ItemListPage> {
-  List<Item> _items = [];
+  List _items = [];
 
   @override
   void initState() {
@@ -37,10 +39,12 @@ class _ItemListPageState extends State<ItemListPage> {
   }
 
   Future<void> _loadItems() async {
-    String data = await rootBundle.loadString('assets/items.json');
-    List<dynamic> jsonList = json.decode(data);
+    final String response = await rootBundle.loadString('assets/items.json'); // load the json as String
+    final data= json.decode(response); // decode this JSON text into object 
+  
     setState(() {
-      _items = jsonList.map((json) => Item.fromJson(json)).toList();
+      _items = data;
+      print(_items);
     });
   }
 
@@ -48,8 +52,14 @@ class _ItemListPageState extends State<ItemListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Items List"),
-        backgroundColor: Colors.deepPurpleAccent,
+       automaticallyImplyLeading: false,  //Automatical leading menu remover
+
+        title: const Text("Items List",
+        style: TextStyle(color: Colors.white),
+        
+        
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: _items.isEmpty
           ? const Center(child: CircularProgressIndicator())
@@ -63,18 +73,46 @@ class _ItemListPageState extends State<ItemListPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   elevation: 5,
+
+                
+                // When I click on Image or Card
+
+
+                child: InkWell(
+                    onTap: () {
+                      // Navigate to detail screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ItemDetailPage(item: item),
+                        ),
+                      );
+                    },
+                
+                  
+
+
+
+
+
                   child: ListTile(
-                    leading: Image.network(
-                      item.image,
+                    leading: Image.asset(
+                      item['image'], // images 
                       width: 60,
-                      height: 60,
+                      height: 60, 
                       fit: BoxFit.cover,
                     ),
-                    title: Text(item.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Text(item.description),
-                    trailing: Text(item.price.toStringAsFixed(2),
+
+                    
+
+                    
+
+                    title: Text(item['name'], style: const TextStyle(fontWeight: FontWeight.bold)),
+                    subtitle: Text(item['description']),
+                    trailing: Text(item['price'].toStringAsFixed(2),
                         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
+                ),
                 );
               },
             ),

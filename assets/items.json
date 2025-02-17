@@ -1,43 +1,43 @@
 [
     {
       "name": "Nike Air Max",
-      "image": "https://th.bing.com/th/id/OIP.ElehjPNNRhQtr3KKSuc5BwHaFF?w=269&h=185&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/adidas.jpg",
       "description": "Comfortable and stylish running shoes.",
       "price": 12400
     },
     {
       "name": "Apple iPhone 14",
-      "image": "https://th.bing.com/th/id/OIP.e4uvP5s08vkU2unnp2DChAHaJz?w=127&h=180&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/apple.jpg",
       "description": "Latest Apple smartphone with A15 Bionic chip.",
-      "price": 16000
+      "price": 160000
     },
     {
       "name": "Sony WH-1000XM5",
-      "image": "https://th.bing.com/th/id/OIP.6mxvtD4DVM3J2cxc-ypAgAHaHa?w=175&h=180&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/OIP.jpg",
       "description": "Industry-leading noise cancellation headphones.",
       "price": 3960
     },
     {
       "name": "Samsung Galaxy Watch 5",
-      "image": "https://th.bing.com/th/id/OIP.j5vd9Z5wgL79me41b72H1AHaJI?w=147&h=181&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/watch.jpg",
       "description": "Smartwatch with advanced fitness tracking.",
       "price": 27999
     },
     {
       "name": "Dell XPS 15",
-      "image": "https://th.bing.com/th/id/OIP.nj4whgdtOICd1aP-7UhGQgHaGS?w=211&h=180&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/oled_display.jpg",
       "description": "Powerful laptop with Intel i7 processor.",
       "price": 61000
     },
     {
       "name": "Adidas Ultraboost",
-      "image": "https://th.bing.com/th/id/OIP.0uW81B57FnOuBzqQMk_zUwHaE7?w=280&h=187&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/shoes.jpg",
       "description": "Lightweight and responsive running shoes.",
       "price": 25000
     },
     {
       "name": "Canon EOS R5",
-      "image": "https://th.bing.com/th/id/OIP.BOXVRio6aFp4VLiwhWMf6gHaEK?w=245&h=180&c=7&r=0&o=5&pid=1.7",
+      "image": "assets/images/camera.jpg",
       "description": "Professional mirrorless camera for photography.",
       "price": 160000
     }
