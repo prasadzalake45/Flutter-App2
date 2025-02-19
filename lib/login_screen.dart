@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'items_list.dart';
 
+import 'package:hive/hive.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -11,6 +13,11 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+
+
+
+  final box=Hive.box('userBox'); // accces Hive Box
 
   String? _usernameError;
   String? _passwordError;
@@ -53,7 +60,8 @@ class _LoginState extends State<Login> {
   // Update form validity
   void _updateFormValidity() {
     setState(() {
-      _isValid = (_usernameError == null && _passwordError == null) &&
+      _isValid =
+          (_usernameError == null && _passwordError == null) &&
           _usernameController.text.isNotEmpty &&
           _passwordController.text.isNotEmpty;
     });
@@ -61,10 +69,14 @@ class _LoginState extends State<Login> {
 
   // Login function
   void _login() {
-    if (_isValid) {
+    String username=_usernameController.text.trim();
+        if (_isValid) {
+      box.put('username',username); // stores username in Hive
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ItemListPage()), // Navigate if valid
+        MaterialPageRoute(
+          builder: (context) => ItemListPage(),
+        ), // Navigate if valid
       );
     }
   }
@@ -72,6 +84,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true, 
       appBar: AppBar(
         backgroundColor: Colors.blue,
         // leading: IconButton(
@@ -81,10 +94,17 @@ class _LoginState extends State<Login> {
         //     print("Menu Button Clicked");
         //   },
         // ),
-        title: Text(
-          "StockMate",
-          style: TextStyle(color: Colors.white),
-        ),
+        centerTitle: true, // Make the title at the center
+        title: Text("StockMate", 
+        style: TextStyle(
+          
+          color: Colors.white,
+         
+              fontSize: 30.0, // Increase font size
+              fontWeight: FontWeight.bold, // Make it bold
+              letterSpacing: 2.0, // Add letter spacing for effect
+          
+          )),
         // actions: [
         //   IconButton(
         //     onPressed: () {
@@ -95,12 +115,21 @@ class _LoginState extends State<Login> {
         //   )
         // ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
+
+
+              // Image.asset(
+              // 'assets/images/fire-flame-circle-free-vector.jpg',
+              // height:80,
+
+              // ),
+               SizedBox(height: 100.0),
               TextFormField(
                 controller: _usernameController,
                 decoration: InputDecoration(
@@ -123,8 +152,8 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 30),
               ElevatedButton(
-                onPressed: _isValid ? _login : null, // Disable button if invalid
-
+                onPressed:
+                    _isValid ? _login : null, // Disable button if invalid
 
                 child: Text("Login"),
               ),

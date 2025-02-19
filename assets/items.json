@@ -1,45 +1,106 @@
 [
-    {
-      "name": "Nike Air Max",
-      "image": "assets/images/adidas.jpg",
-      "description": "Comfortable and stylish running shoes.",
-      "price": 12400
-    },
-    {
-      "name": "Apple iPhone 14",
-      "image": "assets/images/apple.jpg",
-      "description": "Latest Apple smartphone with A15 Bionic chip.",
-      "price": 160000
-    },
-    {
-      "name": "Sony WH-1000XM5",
-      "image": "assets/images/OIP.jpg",
-      "description": "Industry-leading noise cancellation headphones.",
-      "price": 3960
-    },
-    {
-      "name": "Samsung Galaxy Watch 5",
-      "image": "assets/images/watch.jpg",
-      "description": "Smartwatch with advanced fitness tracking.",
-      "price": 27999
-    },
-    {
-      "name": "Dell XPS 15",
-      "image": "assets/images/oled_display.jpg",
-      "description": "Powerful laptop with Intel i7 processor.",
-      "price": 61000
-    },
-    {
-      "name": "Adidas Ultraboost",
-      "image": "assets/images/shoes.jpg",
-      "description": "Lightweight and responsive running shoes.",
-      "price": 25000
-    },
-    {
-      "name": "Canon EOS R5",
-      "image": "assets/images/camera.jpg",
-      "description": "Professional mirrorless camera for photography.",
-      "price": 160000
-    }
-  ]
-  
+  {
+    "name": "Nike Air Max",
+    "image": "assets/images/adi.jpg",
+    "description": "Comfortable and stylish running shoes",
+    "price": 12400,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Apple iPhone 14",
+    "image": "assets/images/apple.jpg",
+    "description": "Latest Apple smartphone with A15 Bionic chip.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Sony WH-1000XM5",
+    "image": "assets/images/headphone2.jpg",
+    "description": "Industry-leading noise cancellation headphones.",
+    "price": 3960,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Samsung Galaxy Watch 5",
+    "image": "assets/images/watch.jpg",
+    "description": "Smartwatch with advanced fitness tracking.",
+    "price": 27999,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Dell XPS 15",
+    "image": "assets/images/oled_display.jpg",
+    "description": "Powerful laptop with Intel i7 processor.",
+    "price": 61000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Adidas Ultraboost",
+    "image": "assets/images/shoes.jpg",
+    "description": "Lightweight and responsive running shoes.",
+    "price": 25000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "assets/images/camra2.jpg",
+    "description": "Professional mirrorless camera for photography.",
+    "price": 160000,
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  }
+]
