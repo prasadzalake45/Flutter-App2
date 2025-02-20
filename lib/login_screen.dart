@@ -151,11 +151,36 @@ class _LoginState extends State<Login> {
                 obscureText: true, // Hide password input
               ),
               SizedBox(height: 30),
+
+
+
+
               ElevatedButton(
                 onPressed:
                     _isValid ? _login : null, // Disable button if invalid
+            
+
+
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orangeAccent,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 15,
+                  ),
+                
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  
+                ),
 
                 child: Text("Login"),
+
+             
+
+
+
+                
               ),
             ],
           ),

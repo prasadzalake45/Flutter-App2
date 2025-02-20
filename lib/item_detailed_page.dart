@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:login_form/cart_model.dart';
+import 'provider.dart';
+import 'package:provider/provider.dart'; // Add provider package
+
 
 class ItemDetailPage extends StatelessWidget {
   final Map<String, dynamic> item; // Mapping of items
@@ -7,13 +12,10 @@ class ItemDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          item["name"] ?? "Item Details",
+          item["title"] ?? "Item Details",
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.blueAccent,
@@ -26,16 +28,22 @@ class ItemDetailPage extends StatelessWidget {
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Image.asset(
-                  item["image"] ?? "assets/images/placeholder.jpg",
-                  height: 250,
+                child: CachedNetworkImage(
+                  imageUrl: item["images"][0], // Use first image from list
+                  // placeholder: (context, url) => CircularProgressIndicator(),  // Show loader while loading
+                  errorWidget:
+                      (context, url, error) =>
+                          Icon(Icons.error), // Show error icon if fails
                   fit: BoxFit.cover,
+                  height: 250,
+
+                  // width: double.infinity, // takes full width of its parent container
                 ),
               ),
             ),
             const SizedBox(height: 16),
             Text(
-              item["name"] ?? "No name available",
+              item["title"] ?? "No name available",
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             Text(
@@ -55,27 +63,49 @@ class ItemDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              "Avaibale sizes:",
+              "Rating:${(item["rating"])}",
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            Row(
 
-              
-             
+            Text(
+              "Stocks:${(item["stock"])}",
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
 
-            
             const SizedBox(height: 80),
-
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  //create new cardItem and add to the cart
+
+                  final newItem = CartItem(
+                    id: item["id"].toString(),
+                    title: item["title"] as String? ?? 'Unknown Title',
+                    description: item['description'] as String? ?? 'No Description',
+                    quantity: 1, //  default quantity to 1.
+                    imageurl: item["images"][0]
+                  );
+
+                    print(newItem);
+
+                  Provider.of<CartProvider>(
+                    context,
+                    listen:false
+                    ).addTocart(newItem);
+
+               
+                  ScaffoldMessenger.of(context).showSnackBar
+                  (SnackBar(content: Text('${item["title"]} added to cart!')));
+                  
+                },
+
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orangeAccent,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 50,
                     vertical: 15,
                   ),
+
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),

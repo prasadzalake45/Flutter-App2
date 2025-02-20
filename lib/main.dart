@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'login_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
+import 'package:login_form/cart_model.dart';
+import 'provider.dart';
+import 'package:provider/provider.dart'; 
+import 'package:flutter/services.dart';
 void main() async{
    // here initialize the Hive to store users data
   WidgetsFlutterBinding.ensureInitialized(); // This is crucial for ensuring that flutter framework properly set up before application starts running
@@ -15,7 +18,16 @@ void main() async{
 
 
 
-  runApp(MyApp());
+  runApp(
+
+    ChangeNotifierProvider(
+      create:(context) => CartProvider(),
+      child:MyApp(),
+    )
+
+    
+    
+  );
 }
 
 class MyApp extends StatelessWidget {
